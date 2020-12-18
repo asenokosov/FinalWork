@@ -77,7 +77,7 @@ class NewManTableViewController: UITableViewController {
 		if imageIsChanged {
 			image = imageAnimal.image
 		} else {
-			image = #imageLiteral(resourceName: "Photo")
+			image = #imageLiteral(resourceName: "camera")
 		}
 		let imageAnimal = image?.pngData()
 		let newPatient = UserDB(nameMan: nameManField.text!, nameAnimal: nameAnimalField.text, imageAnimal: imageAnimal, ageAnimal: ageAnimalField.text, breedAnimal: breedField.text)

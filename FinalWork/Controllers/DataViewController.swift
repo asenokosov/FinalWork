@@ -23,22 +23,19 @@ class DataViewController: UIViewController {
 		return dateFormatter
 	}()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		itemLabel.text = item?.name
 		dataLabel.text = Self.dateFormatter.string(from: item!.date)
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
-    }
-    
+	}
 
 	@objc private func didTapDelete() {
 		guard let oldItem = self.item else { return }
 		realm.beginWrite()
-
 		realm.delete(oldItem)
-
 		try! realm.commitWrite()
 		deletionHandler?()
 		navigationController?.popViewController(animated: true)
