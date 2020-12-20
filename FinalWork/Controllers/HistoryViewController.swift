@@ -46,15 +46,22 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let item = visitList[indexPath.row]
-		guard let vc = storyboard?.instantiateViewController(identifier: "view") as? DataViewController else { return }
+		let alert = UIAlertController(title: "Уверены что хотите удалить?", message: "", preferredStyle: .alert)
+		let action = UIAlertAction(title: "Не совсем!", style: .cancel)
+		let action1 = UIAlertAction(title: "Вполне!", style: .destructive, handler: {[weak self] _ in
+			guard let vc = self?.storyboard?.instantiateViewController(identifier: "view") as? DataViewController else { return }
 		vc.item = item
 		vc.deletionHandler = { [weak self] in
 			self?.refresh()
 		}
 		vc.navigationItem.largeTitleDisplayMode = .never
 		vc.title = item.name
-		navigationController?.pushViewController(vc, animated: true)
-		tableViewHistory.reloadData()
+			self?.navigationController?.pushViewController(vc, animated: true)
+			self?.tableViewHistory.reloadData()
+		})
+		alert.addAction(action)
+		alert.addAction(action1)
+		present(alert, animated: true)
 	}
 
 	func refresh() {

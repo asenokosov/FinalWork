@@ -32,7 +32,6 @@
 		C3B93AE9258B30810067AF11 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B93AE8258B30810067AF11 /* EntryViewController.swift */; };
 		C3C1D960258F8C0600F7B595 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1D95F258F8C0600F7B595 /* DataViewController.swift */; };
 		C3EEEBAB258BA5E30023A0DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3EEEBAA258BA5E20023A0DB /* GoogleService-Info.plist */; };
-		C3FD33FB258E1CCF004D8681 /* loginbg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C3FD33F7258E1C62004D8681 /* loginbg.mp4 */; };
 		C3FD3400258E1CFF004D8681 /* Dog179.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C3FD33FF258E1CFF004D8681 /* Dog179.mp4 */; };
 		DFD60FCE7E8510B29D3A1719 /* Pods_FinalWork_FinalWorkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229CED0DA10608A7C605F697 /* Pods_FinalWork_FinalWorkUITests.framework */; };
 /* End PBXBuildFile section */
@@ -92,7 +91,6 @@
 		C3B93AE8258B30810067AF11 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		C3C1D95F258F8C0600F7B595 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		C3EEEBAA258BA5E20023A0DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C3FD33F7258E1C62004D8681 /* loginbg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginbg.mp4; sourceTree = "<group>"; };
 		C3FD33FF258E1CFF004D8681 /* Dog179.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dog179.mp4; sourceTree = "<group>"; };
 		F12209CF513B03579C2DB11B /* Pods_FinalWorkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalWorkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				C3FD33FF258E1CFF004D8681 /* Dog179.mp4 */,
-				C3FD33F7258E1C62004D8681 /* loginbg.mp4 */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -376,7 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C371D1612588638B00974D27 /* LaunchScreen.storyboard in Resources */,
-				C3FD33FB258E1CCF004D8681 /* loginbg.mp4 in Resources */,
 				C3FD3400258E1CFF004D8681 /* Dog179.mp4 in Resources */,
 				C3EEEBAB258BA5E30023A0DB /* GoogleService-Info.plist in Resources */,
 				C371D15E2588638B00974D27 /* Assets.xcassets in Resources */,
