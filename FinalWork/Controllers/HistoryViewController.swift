@@ -9,33 +9,43 @@ import UIKit
 import RealmSwift
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-	
-	@IBOutlet weak var tableViewHistory: UITableView!
-	
+
 	private let realm = try! Realm()
-	private var data = [VisitHistory]()
-	
+	var visitList = [VisitHistory]()
+	//var data = [PatientDB]()
+	//var patient = PatientDB()
+
+	//MARK: Outlet
+
+	@IBOutlet weak var tableViewHistory: UITableView!
+
+	//MARK: View did load
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		data = realm.objects(VisitHistory.self).map({ $0 })
+		visitList = realm.objects(VisitHistory.self).map({$0})
 		tableViewHistory.register(UITableViewCell.self, forCellReuseIdentifier: "VistCell")
 		tableViewHistory.delegate = self
 		tableViewHistory.dataSource = self
 	}
-	
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return data.count
+		return visitList.count
 	}
-	
+
+	//MARK: Cell properties
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "VistCell", for: indexPath)
-		cell.textLabel?.text = data[indexPath.row].name
+		cell.textLabel?.text = visitList[indexPath.row].name
 		return cell
 	}
-	
+
+	//MARK: Delete Row
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		let item = data[indexPath.row]
+		let item = visitList[indexPath.row]
 		guard let vc = storyboard?.instantiateViewController(identifier: "view") as? DataViewController else { return }
 		vc.item = item
 		vc.deletionHandler = { [weak self] in
@@ -46,6 +56,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 		navigationController?.pushViewController(vc, animated: true)
 		tableViewHistory.reloadData()
 	}
+
+	func refresh() {
+		visitList = realm.objects(VisitHistory.self).map({$0})
+		tableViewHistory.reloadData()
+	}
+
+	//MARK: IBAction's
 	
 	@IBAction func addButtonTapped() {
 		guard  let vc = storyboard?.instantiateViewController(identifier: "enter") as? EntryViewController else { return }
@@ -55,11 +72,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 		vc.title = "Новый приём"
 		vc.navigationItem.largeTitleDisplayMode = .never
 		navigationController?.pushViewController(vc, animated: true)
-		tableViewHistory.reloadData()
-	}
-	
-	func refresh() {
-		data = realm.objects(VisitHistory.self).map({ $0 })
 		tableViewHistory.reloadData()
 	}
 }

@@ -12,5 +12,4 @@ class CustomTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var animalLabel: UILabel!
 	@IBOutlet weak var fotoAnimal: UIImageView!
-
 }

@@ -15,7 +15,7 @@ protocol ThemeBuilderProtocol {
 class CellThemeBuilder: ThemeBuilderProtocol {
 	var setBackground: UIColor
 	var setText: UIColor
-
+	
 	init(setBackground: UIColor, setText: UIColor) {
 		self.setBackground = setBackground
 		self.setText = setText
