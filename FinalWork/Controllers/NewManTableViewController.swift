@@ -161,7 +161,7 @@ extension NewManTableViewController: UITextFieldDelegate{
 	
 	@objc func textFieldDidChange () {
 		if nameManField.text?.isEmpty == true ||
-			ageAnimalField.text?.isEmpty == true ||
+			breedField.text?.isEmpty == true ||
 			nameAnimalField.text?.isEmpty == true {
 			saveButton.isEnabled = false
 		} else {

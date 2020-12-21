@@ -117,13 +117,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hWX-EE-mma">
                                                     <rect key="frame" x="16" y="10" width="382" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст животного" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bs-Di-79X">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Порода животного" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bs-Di-79X">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="22.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Внесите возраст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-kd-K6M">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Внесите породу" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-kd-K6M">
                                                             <rect key="frame" x="0.0" y="32.5" width="382" height="31.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -161,13 +161,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-1r-MbI">
                                                     <rect key="frame" x="16" y="10" width="382" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Порода животного" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loS-Tc-SPB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст животного" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loS-Tc-SPB">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="22.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Внесите породу" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq4-6e-dKf">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Внесите возраст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq4-6e-dKf">
                                                             <rect key="frame" x="0.0" y="32.5" width="382" height="31.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -265,8 +265,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ageAnimalField" destination="AJX-kd-K6M" id="aGp-2y-ndC"/>
-                        <outlet property="breedField" destination="tq4-6e-dKf" id="uRw-dV-H1L"/>
+                        <outlet property="ageAnimalField" destination="tq4-6e-dKf" id="bBS-A0-G0f"/>
+                        <outlet property="breedField" destination="AJX-kd-K6M" id="GsN-Ry-YBt"/>
                         <outlet property="historyButton" destination="NOh-uo-qYn" id="Uae-Nw-v0Z"/>
                         <outlet property="imageAnimal" destination="ybL-5K-dGN" id="sAp-1h-e7c"/>
                         <outlet property="nameAnimalField" destination="3Iy-Pp-xQB" id="AT5-Vf-9Fs"/>
@@ -320,7 +320,6 @@
         <!--Data View Controller-->
         <scene sceneID="eeX-oE-9PO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9o-iP-UkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="view" id="IVg-sW-9XJ" customClass="DataViewController" customModule="FinalWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="os1-Pt-Vcg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -361,6 +360,7 @@
                         <outlet property="itemLabel" destination="ej6-jP-aUN" id="dBw-Vy-Gx5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9o-iP-UkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3454" y="-550"/>
         </scene>

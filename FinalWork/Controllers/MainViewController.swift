@@ -65,26 +65,36 @@ class MainViewController: UITableViewController, UISearchResultsUpdating {
 	}
 	
 	//MARK: Delete Row
-	
-	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		var manList = PatientDB()
-		
-		if isFiltering {
-			manList = filteredUser[indexPath.row]
-		} else {
-			manList = userDataBase[indexPath.row]
+
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			var manList = PatientDB()
+
+			if isFiltering {
+				manList = filteredUser[indexPath.row]
+			} else {
+				manList = userDataBase[indexPath.row]
+			}
+
+			let alertController = UIAlertController(title: "Вы уверены в удалении?", message: "", preferredStyle: .alert)
+
+			let deleteAction = UIAlertAction(title: "Вполне!", style: .destructive, handler: { (action) in
+
+				SaveManagerUser.deleteObject(manList)
+				tableView.deleteRows(at: [indexPath], with: .automatic)
+				tableView.reloadData()
+			})
+			deleteAction.setValue(UIColor.red, forKey: "titleTextColor")
+			alertController.addAction(deleteAction)
+
+			let cancelAction = UIAlertAction(title: "Ну...", style: .default, handler: nil)
+			cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+			alertController.addAction(cancelAction)
+
+			present(alertController, animated: true, completion: nil)
 		}
-		let deleteMan = UIContextualAction(style: .normal, title: "Удалить") {_, _, complete in
-			SaveManagerUser.deleteObject(manList)
-			tableView.deleteRows(at: [indexPath], with: .automatic)
-			tableView.reloadData()
-			complete(true)
-		}
-		deleteMan.backgroundColor = #colorLiteral(red: 1, green: 0.20458019, blue: 0.1013487829, alpha: 1)
-		let action = UISwipeActionsConfiguration(actions: [deleteMan])
-		return action
 	}
-	
+
 	//MARK: Cell properties
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
